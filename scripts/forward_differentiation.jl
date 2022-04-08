@@ -43,5 +43,5 @@ end
 f(x) = [x[1], x[1]*x[3], x[2]^2]
 x = @SVector [3.0, 4.0, 5.0]
 u = @SVector [1.0, 2.0, 3.0]
-Jvp = ForwardDiff.jacobian(a->f(a), x) * u
-Jvp = jvp(f, x, u)
+Jvp = ForwardDiff.jacobian(a->f(a), x) * u #explicit computation of the Jacobian-Vector Product. Scales poorly 
+Jvp = jvp(f, x, u) # more efficient computation of the Jacobian-Vector Product
